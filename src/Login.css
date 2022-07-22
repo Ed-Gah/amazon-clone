@@ -22,7 +22,7 @@
   border: 1px solid lightgray;
   padding: 20px;
 }
-> .login__container > h1 {
+.login__container > h1 {
   font-weight: 500;
   margin-bottom: 20px;
 }

@@ -1,23 +1,36 @@
 import React from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
-import { db, auth } from "./firebase";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, db } from "./firebase.js";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { async } from "@firebase/util";
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const signIn = (e) => {
     e.preventDefault();
     // Some firebase login
-    auth.createUserWithEmailAndPassword(email, password).then((auth) => {
-      console.log(auth);
-    });
   };
 
-  const register = (e) => {
+  const register = async (e) => {
     e.preventDefault();
-    // Some firebase register
+    // Some firebase
+
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        if (res) {
+          console.log("User created Successfully ", res);
+          setEmail("");
+          setPassword("");
+          navigate("/", { replace: true });
+        }
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
   return (
     <div className="login">
