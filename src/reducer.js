@@ -1,5 +1,6 @@
 export const initialState = {
   basket: [],
+  user: null,
 };
 
 //Selector
@@ -21,7 +22,7 @@ const reducer = (state, action) => {
       );
       let newBasket = [...state.basket];
       if (index >= 0) {
-        newBasket.splice(index, 1)
+        newBasket.splice(index, 1);
       } else {
         console.warn(
           `Cant remove product (id: ${action.id}) as its not in the basket`
@@ -29,8 +30,19 @@ const reducer = (state, action) => {
       }
       return {
         ...state,
-        basket: newBasket
-      }
+        basket: newBasket,
+      };
+
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
+    case "EMPTY_BASKET":
+      return {
+        ...state,
+        basket: [],
+      };
     default:
       return state;
   }
