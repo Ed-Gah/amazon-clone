@@ -24,6 +24,7 @@
 .payment__items,
 .payment__details {
   flex: 0.8;
+  margin-left: 40px;
 }
 .payment__details > form {
   max-width: 400px;
@@ -41,4 +42,9 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   columns: #111;
+}
+
+.payment__details > form > div > button:hover {
+  cursor: pointer;
+  background-color: #a88734;
 }

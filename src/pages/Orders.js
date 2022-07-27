@@ -1,8 +1,8 @@
 import React from "react";
 import "./Orders.css";
-import { db } from "./firebase";
-import { useStateValue } from "./StateProvider";
-import Order from "./Order";
+import { db } from "../firebase";
+import { useStateValue } from "../stateManagment/StateProvider";
+import Order from "../components/Order";
 
 function Orders() {
   const [orders, setOrders] = React.useState([]);

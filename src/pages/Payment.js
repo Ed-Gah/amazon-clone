@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import CheckoutProduct from "./CheckoutProduct";
+import CheckoutProduct from "../components/CheckoutProduct";
 import "./Payment.css";
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "../stateManagment/StateProvider";
 import { setDoc, collection } from "firebase/firestore";
 import { CardElement, useStripe, useElements } from "@stripe/stripe-js";
 import CurrencyFormat from "react-currency-format";
-import { getBasketTotal } from "./reducer";
-import instanse from "./axois";
+import { getBasketTotal } from "../stateManagment/reducer";
+import instanse from "../utils/axois";
 import axios from "axios";
-import { db } from "./firebase";
+import { db } from "../firebase";
 
 function Payment() {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function Payment() {
   const [processing, setProcessing] = React.useState("");
   const [succeeded, setSucceeded] = React.useState(false);
 
-  // useEffect(() => {
+  // React.useEffect(() => {
   //   //generate stripe secret which alow us to charge customer
   //   const getClientSecret = async () => {
   //     const response = await axios({

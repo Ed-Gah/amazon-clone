@@ -12,6 +12,11 @@
   z-index: 1;
 }
 
+.product:hover {
+  /* background-color: whitesmoke; */
+  box-shadow: 2px 4px 8px 12px whitesmoke;
+}
+
 .product > img {
   max-height: 200px;
   width: 100%;
@@ -27,6 +32,11 @@
   color: #111;
 }
 
+.product > button:hover {
+  cursor: pointer;
+  background-color: #a88734;
+}
+
 .product__rating {
     display: flex;
 }
@@ -34,7 +44,10 @@
 .product__price {
     margin-top: 5px;
 }
-
+.product__price > small {
+  font-size: 16px;
+  font-weight: 500;
+}
 .product__info {
     height: 100px;
     margin-bottom: 15px;
